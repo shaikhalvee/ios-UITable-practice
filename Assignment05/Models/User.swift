@@ -15,12 +15,12 @@ class User {
     var state: String
     var group: String
     
-    init(name: String, email: String, gender: String, age: Int, state: String, group: String) {
-        self.name = name
-        self.email = email
-        self.gender = gender
-        self.age = age
-        self.state = state
-        self.group = group
+    init(name: String? = nil, email: String? = nil, gender: String? = nil, age: Int? = nil, state: String? = nil, group: String? = nil) {
+        self.name = name ?? ""
+        self.email = email ?? ""
+        self.gender = gender ?? ""
+        self.age = age ?? 0
+        self.state = state ?? ""
+        self.group = group ?? ""
     }
 }
