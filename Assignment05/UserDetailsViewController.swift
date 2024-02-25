@@ -10,6 +10,8 @@ import UIKit
 class UserDetailsViewController: UIViewController {
     
     var userDetails: User?
+    var currentUserIndex: IndexPath?
+    var deleteDelegate: UserDeleteDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +37,24 @@ class UserDetailsViewController: UIViewController {
     
     @IBAction func deleteButton(_ sender: Any) {
         let lables = [nameTextLabel, emailTextLabel, ageTextLabel, stateTextLabel, genderTextLabel, groupTextLabel]
-         lables.forEach{$0?.text = ""}
-         
-         
-         let alertController = UIAlertController(title: "Data Deleted", message: "Click the back button to go back.", preferredStyle: .alert)
-             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-             present(alertController, animated: true, completion: nil)
+        lables.forEach{$0?.text = ""}
+        
+        if deleteDelegate != nil {
+            self.deleteDelegate!.deleteUser(indexPath: currentUserIndex!)
+        }
+        
+        let alertController = UIAlertController(
+            title: "Data Deleted",
+            message: "Click the back button to go back.",
+            preferredStyle: .alert
+        )
+        alertController.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil)
+        )
+        present(alertController, animated: true, completion: nil)
     }
     
     
