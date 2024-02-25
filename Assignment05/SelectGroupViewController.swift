@@ -18,6 +18,9 @@ class SelectGroupViewController: UIViewController {
     }
     
 
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -28,4 +31,27 @@ class SelectGroupViewController: UIViewController {
     }
     */
 
+}
+
+extension SelectGroupViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Data.groups.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupViewCell", for: indexPath)
+        let group = Data.groups[indexPath.row]
+        cell.textLabel?.text = group
+        return cell
+    }
+}
+
+extension SelectGroupViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let choice = Data.groups[indexPath.row]
+        let user = User(group: choice)
+        self.dataBackDelegate?.sendBackGroupData(user: user)
+        dismiss(animated: true)
+    }
+    
 }

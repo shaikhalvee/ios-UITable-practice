@@ -603,6 +603,9 @@
                                 <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="FQd-EX-J46" eventType="touchUpInside" id="gXR-sf-o1l"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kgs-Pc-cQ1"/>
