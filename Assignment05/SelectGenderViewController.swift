@@ -8,8 +8,8 @@
 import UIKit
 
 class SelectGenderViewController: UIViewController {
-    var data = Data()
-    var users = [User]()
+//    var data = Data()
+//    var users = [User]()
     var dataBackDelegate: DataBackDelegate?
 
     override func viewDidLoad() {

@@ -479,6 +479,9 @@
                                 <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Pps-yc-Z7e" eventType="touchUpInside" id="gNA-go-kBd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V2X-NH-5uO"/>
