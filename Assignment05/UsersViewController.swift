@@ -70,7 +70,7 @@ class UsersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sortSegue" {
             if let vc = segue.destination as? SortSelectionViewController {
-//                vc.sortSelectionDelegate = self
+                vc.sortSelectionDelegate = self
             }
         } else if segue.identifier == "toUserDetailsSegue" {
             if let indexPath = userTableView.indexPathForSelectedRow {
@@ -115,31 +115,31 @@ extension UsersViewController: UITableViewDataSource {
     
 }
 
-//extension UsersViewController: SortSelectionDelegate {
-//    func sendBackSortedData(data: Int) {
-//        // Dictionary to map data values to sorting closures
-//        let sortingClosures: [Int: (User, User) -> Bool] = [
-//            1: { $0.name! < $1.name! },     // Sort by Name (ASC)
-//            2: { $0.name! > $1.name! },     // Sort by Name (desc)
-//            3: { $0.email! < $1.email! },   // Sort by Email (ASC)
-//            4: { $0.email! > $1.email! },   // Sort by Email (desc)
-//            5: { $0.gender! < $1.gender! }, // Sort by Gender (ASC)
-//            6: { $0.gender! > $1.gender! }, // Sort by Gender (desc)
-//            7: { $0.age < $1.age },         // Sort by Age (ASC)
-//            8: { $0.age > $1.age },         // Sort by Age (desc)
-//            9: { $0.state! < $1.state! },   // Sort by State (ASC)
-//            10: { $0.state! > $1.state! },  // Sort by State (desc)
-//            11: { $0.group! < $1.group! },  // Sort by Group (ASC)
-//            12: { $0.group! > $1.group! }   // Sort by Group (desc)
-//        ]
-//        
-//        // Sort users array using the selected sorting closure
-//        if let sortingClosure = sortingClosures[data] {
-//            users.sort(by: sortingClosure)
-//            UserTableView.reloadData()
-//        }
-//    }
-//}
+extension UsersViewController: SortSelectionDelegate {
+    func sendBackSortedData(data: Int) {
+        // Dictionary to map data values to sorting closures
+        
+        let sortingClosures: [Int: (User, User) -> Bool] = [
+            1: { $0.name < $1.name },     // Sort by Name (ASC)
+            2: { $0.name > $1.name },     // Sort by Name (desc)
+            3: { $0.email < $1.email },   // Sort by Email (ASC)
+            4: { $0.email > $1.email },   // Sort by Email (desc)
+            5: { $0.gender < $1.gender }, // Sort by Gender (ASC)
+            6: { $0.gender > $1.gender }, // Sort by Gender (desc)
+            7: { $0.age < $1.age },         // Sort by Age (ASC)
+            8: { $0.age > $1.age },         // Sort by Age (desc)
+            9: { $0.state < $1.state },   // Sort by State (ASC)
+            10: { $0.state > $1.state },  // Sort by State (desc)
+            11: { $0.group < $1.group },  // Sort by Group (ASC)
+            12: { $0.group > $1.group }   // Sort by Group (desc)
+        ]
+        // Sort users array using the selected sorting closure
+        if let sortingClosure = sortingClosures[data] {
+            users.sort(by: sortingClosure)
+            userTableView.reloadData()
+        }
+    }
+}
 
 // touching the UITable, what will happen?
 extension UsersViewController: UITableViewDelegate {

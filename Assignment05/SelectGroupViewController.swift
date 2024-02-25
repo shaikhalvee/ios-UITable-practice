@@ -8,6 +8,8 @@
 import UIKit
 
 class SelectGroupViewController: UIViewController {
+    
+    var dataBackDelegate: DataBackDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

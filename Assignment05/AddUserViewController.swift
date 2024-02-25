@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol DataBackDelegate {
+    func sendBackGenderData(user: User)
+    func sendBackAgeData(user: User)
+    func sendBackStateData(user: User)
+    func sendBackGroupData(user: User)
+}
+
 class AddUserViewController: UIViewController {
     
     var userToAdd: User = User()
@@ -21,7 +28,7 @@ class AddUserViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var genderTextField: UILabel!
     @IBOutlet weak var ageTextField: UILabel!
-    @IBOutlet weak var sateTextField: UILabel!
+    @IBOutlet weak var stateTextField: UILabel!
     @IBOutlet weak var groupTextField: UILabel!
     
     
@@ -31,7 +38,7 @@ class AddUserViewController: UIViewController {
         let name = self.nameTextFiled.text ?? ""
         let email = self.emailTextField.text ?? ""
         let gender = self.userToAdd.gender 
-        let age = self.userToAdd.age 
+        let age = self.userToAdd.age
         let state = self.userToAdd.state 
         let group = self.userToAdd.group 
         self.userToAdd = User(
@@ -43,7 +50,7 @@ class AddUserViewController: UIViewController {
             group: group
         )
         
-        if let usersViewController = presentedViewController as? UsersViewController {
+        if let usersViewController = presentingViewController as? UsersViewController {
             usersViewController.users.append(userToAdd)
             usersViewController.userTableView.reloadData()
         } else {
@@ -51,6 +58,26 @@ class AddUserViewController: UIViewController {
         }
         
         dismiss(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGenderSegue" {
+            if let vc = segue.destination as? SelectGenderViewController {
+                vc.dataBackDelegate = self
+            }
+        } else if segue.identifier == "toAgeSegue" {
+            if let vc = segue.destination as? SelectAgeViewController {
+                vc.dataBackDelegate = self
+            }
+        } else if segue.identifier == "toStateSegue" {
+            if let vc = segue.destination as? SelectStateViewController {
+                vc.dataBackDelegate = self
+            }
+        } else if segue.identifier == "toGroupSegue" {
+            if let vc = segue.destination as? SelectGroupViewController {
+                vc.dataBackDelegate = self
+            }
+        }
     }
     
     /*
@@ -63,4 +90,26 @@ class AddUserViewController: UIViewController {
     }
     */
 
+}
+
+extension AddUserViewController: DataBackDelegate {
+    func sendBackGenderData(user: User) {
+        self.genderTextField.text = user.gender
+        self.userToAdd.gender = user.gender
+    }
+    
+    func sendBackAgeData(user: User) {
+        self.ageTextField.text = "\(user.age) years old"
+        self.userToAdd.age = user.age
+    }
+    
+    func sendBackStateData(user: User) {
+        self.stateTextField.text = user.state
+        self.userToAdd.state = user.state
+    }
+    
+    func sendBackGroupData(user: User) {
+        self.groupTextField.text = user.group
+        self.userToAdd.group = user.group
+    }
 }

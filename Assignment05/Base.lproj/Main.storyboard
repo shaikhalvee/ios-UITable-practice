@@ -254,6 +254,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Select"/>
+                                <connections>
+                                    <segue destination="mMr-dZ-6La" kind="show" identifier="toGenderSegue" id="uML-98-QYm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk7-YU-LHL">
                                 <rect key="frame" x="297" y="188.33333333333334" width="80" height="40.333333333333343"/>
@@ -262,6 +265,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Select"/>
+                                <connections>
+                                    <segue destination="AGr-y4-umq" kind="show" identifier="toAgeSegue" id="Abt-bO-4Hh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvw-cQ-FgC">
                                 <rect key="frame" x="297" y="244.66666666666666" width="80" height="40.333333333333343"/>
@@ -270,6 +276,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Select"/>
+                                <connections>
+                                    <segue destination="Pps-yc-Z7e" kind="show" identifier="toStateSegue" id="Njk-nc-a5W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrQ-S4-eXZ">
                                 <rect key="frame" x="297" y="301" width="80" height="40.333333333333314"/>
@@ -278,6 +287,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Select"/>
+                                <connections>
+                                    <segue destination="FQd-EX-J46" kind="show" identifier="toGroupSegue" id="BEg-Km-ffn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEx-re-rjE">
                                 <rect key="frame" x="59" y="198.33333333333334" width="230" height="20.333333333333343"/>
@@ -362,35 +374,52 @@
                         <outlet property="genderTextField" destination="4G7-Oh-3uu" id="fKT-4I-f6f"/>
                         <outlet property="groupTextField" destination="DVZ-78-7kD" id="DSu-DJ-KEN"/>
                         <outlet property="nameTextFiled" destination="y14-dr-jLt" id="3gC-oA-Ova"/>
-                        <outlet property="sateTextField" destination="7e1-VA-ujI" id="wU6-b8-RFB"/>
+                        <outlet property="stateTextField" destination="7e1-VA-ujI" id="wU6-b8-RFB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mW6-gp-Mvi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="-421"/>
+            <point key="canvasLocation" x="734" y="-575"/>
         </scene>
         <!--Select Gender View Controller-->
         <scene sceneID="X1O-FZ-ZwU">
             <objects>
                 <viewController id="mMr-dZ-6La" customClass="SelectGenderViewController" customModule="Assignment05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qFb-Dv-ecU">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-7s-aX2">
-                                <rect key="frame" x="8" y="59" width="377" height="24"/>
+                                <rect key="frame" x="8" y="0.0" width="377" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B2d-Dy-Upp">
-                                <rect key="frame" x="0.0" y="91" width="393" height="678.66666666666663"/>
+                                <rect key="frame" x="0.0" y="32" width="393" height="761.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genderViewCell" id="Uy3-GU-HbI">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uy3-GU-HbI" id="aja-Ij-CnR">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mMr-dZ-6La" id="dCr-8Q-9vN"/>
+                                    <outlet property="delegate" destination="mMr-dZ-6La" id="yVa-4m-w1Q"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6e-hX-tsm">
-                                <rect key="frame" x="8" y="777.66666666666663" width="377" height="40.333333333333371"/>
+                                <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="mMr-dZ-6La" eventType="touchUpInside" id="cij-74-LRQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kea-AL-erp"/>
@@ -408,31 +437,46 @@
                             <constraint firstItem="D6e-hX-tsm" firstAttribute="leading" secondItem="kea-AL-erp" secondAttribute="leading" constant="8" id="tIv-R9-ECe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WLn-lY-NFr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPw-U3-RNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.9465648854962" y="-575.35211267605632"/>
+            <point key="canvasLocation" x="-248" y="-1073"/>
         </scene>
         <!--Select State View Controller-->
         <scene sceneID="jK7-l7-ULY">
             <objects>
                 <viewController id="Pps-yc-Z7e" customClass="SelectStateViewController" customModule="Assignment05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RGC-MI-qqV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTN-1t-8pF">
-                                <rect key="frame" x="8" y="59" width="377" height="24"/>
+                                <rect key="frame" x="8" y="0.0" width="377" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Ko-Wn-jK1">
-                                <rect key="frame" x="0.0" y="91" width="393" height="678.66666666666663"/>
+                                <rect key="frame" x="0.0" y="32" width="393" height="761.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stateViewCell" id="apQ-rY-D2m">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="apQ-rY-D2m" id="RKt-Zm-8LK">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pps-yc-Z7e" id="hfr-Tg-boj"/>
+                                    <outlet property="delegate" destination="Pps-yc-Z7e" id="fwn-lT-xJr"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibl-ND-EHs">
-                                <rect key="frame" x="8" y="777.66666666666663" width="377" height="40.333333333333371"/>
+                                <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
                             </button>
@@ -452,31 +496,46 @@
                             <constraint firstItem="1Ko-Wn-jK1" firstAttribute="trailing" secondItem="V2X-NH-5uO" secondAttribute="trailing" id="vlC-9h-3xu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="OHc-T7-Cgk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhD-UQ-C85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2520" y="-575"/>
+            <point key="canvasLocation" x="734" y="-1311"/>
         </scene>
         <!--Select Age View Controller-->
         <scene sceneID="z9H-kb-hHD">
             <objects>
                 <viewController id="AGr-y4-umq" customClass="SelectAgeViewController" customModule="Assignment05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rFZ-8Z-2Zt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayG-KB-tYu">
-                                <rect key="frame" x="8" y="59" width="377" height="24"/>
+                                <rect key="frame" x="8" y="0.0" width="377" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s9W-f6-XlV">
-                                <rect key="frame" x="0.0" y="91" width="393" height="678.66666666666663"/>
+                                <rect key="frame" x="0.0" y="32" width="393" height="761.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ageViewCell" id="eDt-6i-diQ">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eDt-6i-diQ" id="k3O-OX-0uZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AGr-y4-umq" id="BsV-YY-S4U"/>
+                                    <outlet property="delegate" destination="AGr-y4-umq" id="Lsx-pI-U7K"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-jt-ZfO">
-                                <rect key="frame" x="8" y="777.66666666666663" width="377" height="40.333333333333371"/>
+                                <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
                             </button>
@@ -496,31 +555,46 @@
                             <constraint firstItem="Z7h-jt-ZfO" firstAttribute="leading" secondItem="foc-kj-dhc" secondAttribute="leading" constant="8" id="w5S-uD-aOr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="y0Z-iI-nB3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohR-6h-KgG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3250" y="-575"/>
+            <point key="canvasLocation" x="1747" y="-1133"/>
         </scene>
         <!--Select Group View Controller-->
         <scene sceneID="jZV-mA-AcV">
             <objects>
                 <viewController id="FQd-EX-J46" customClass="SelectGroupViewController" customModule="Assignment05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIr-rc-jd0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLJ-C5-UMk">
-                                <rect key="frame" x="8" y="59" width="377" height="24"/>
+                                <rect key="frame" x="8" y="0.0" width="377" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kzh-Bf-9oU">
-                                <rect key="frame" x="0.0" y="91" width="393" height="678.66666666666663"/>
+                                <rect key="frame" x="0.0" y="32" width="393" height="761.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupViewCell" id="IiC-FF-5Qf">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IiC-FF-5Qf" id="2Pk-JL-8cj">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FQd-EX-J46" id="qov-ww-krq"/>
+                                    <outlet property="delegate" destination="FQd-EX-J46" id="eit-jk-cbQ"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y93-PU-XKd">
-                                <rect key="frame" x="8" y="777.66666666666663" width="377" height="40.333333333333371"/>
+                                <rect key="frame" x="8" y="801.66666666666663" width="377" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
                             </button>
@@ -540,10 +614,11 @@
                             <constraint firstItem="TLJ-C5-UMk" firstAttribute="leading" secondItem="Kgs-Pc-cQ1" secondAttribute="leading" constant="8" id="zo9-t1-JHM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Lc4-VD-U3s"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zP-Rj-azz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4024" y="-575"/>
+            <point key="canvasLocation" x="1746" y="-420"/>
         </scene>
         <!--Sort Selection View Controller-->
         <scene sceneID="jSG-n6-xQQ">
@@ -572,6 +647,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nameASCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="wv5-UY-Mnv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9m-7w-YO6">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -583,6 +661,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nameDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="pgm-7G-1Jd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -599,6 +680,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="emailASCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="Khl-uU-6c4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beu-6S-6MF">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -610,6 +694,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="emailDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="qQ3-04-RxT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -626,6 +713,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="genderASCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="vBd-fB-qsM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O08-dc-Me6">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -637,6 +727,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="genderDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="J3J-Em-Gpo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -653,6 +746,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ageSCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="wtn-zS-A7g"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-on-8di">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -664,6 +760,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ageDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="UIL-A6-Df9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -680,6 +779,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="stateASCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="cNx-un-dT2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7q-ZM-roG">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -691,6 +793,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="stateDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="BO7-XC-yTz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -707,6 +812,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_asc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="groupASCSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="NXr-8k-Sv4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRl-rV-jxr">
                                         <rect key="frame" x="85" y="0.0" width="50" height="50"/>
@@ -718,6 +826,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="ic_desc_sort"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="groupDECSortButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="XEQ-DG-ue4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -761,6 +872,9 @@
                                 <rect key="frame" x="16" y="444" width="361" height="40.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="9iG-9W-maP" eventType="touchUpInside" id="W2D-e0-RKw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dri-sq-OWy"/>
@@ -802,7 +916,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sv-rH-mAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="313"/>
+            <point key="canvasLocation" x="734" y="294"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="45R-tL-jIq">
@@ -928,7 +1042,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDd-Yb-cVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="313"/>
+            <point key="canvasLocation" x="-248" y="546"/>
         </scene>
     </scenes>
     <resources>

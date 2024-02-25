@@ -8,6 +8,8 @@
 import UIKit
 
 class SelectAgeViewController: UIViewController {
+    
+    var dataBackDelegate: DataBackDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
